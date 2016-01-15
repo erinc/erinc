@@ -7,75 +7,83 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
   <style type="text/css">
     .container {
-      max-width: 800px; 
-      margin-top: 120px;
+      max-width: 500px; 
+      margin-top: 100px;
+      text-align: center;
+    }
+    .headshot {
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+    }
+    .stats span {
+      font-weight: bold;
+      font-size: 20px;
     }
     .blog_posts {
       list-style: none;
+      margin-top: 20px;
     }
     .blog_posts li a {
       color: #000;
       text-decoration: none;
+      border-bottom: 1px solid #ddd;
     }
     .blog_posts li a:hover {
-      text-decoration: underline;
+      border-bottom: 1px solid #000;
     }
   </style>
 
-  <!-- Scripts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-  <link rel="icon" type="image/png" href="">
-
+  <link rel="icon" type="image/png" href="https://cdn-images-1.medium.com/fit/c/200/200/1*KxxprB-7VQVLAlcbpzTt6A.jpeg">
 </head>
 <body>
 
-<!-- .container is main centered wrapper -->
 <div class="container">
 
-  <!-- columns should be the immediate child of a .row -->
   <div class="row">
-    <div class="twelve columns"><h4>Erinc Mullaoglu</h4></div>
+    <div class="twelve columns">
+      <img class="headshot" src="https://cdn-images-1.medium.com/fit/c/200/200/1*KxxprB-7VQVLAlcbpzTt6A.jpeg">
+      <h4>Erinc Mullaoglu</h4></div>
+      <p>
+        Product developer based in Vancouver, Canada. <br/>
+        Currently CTO at Wantoo, former engineering lead at Hootsuite.
+      </p>
   </div>
 
-  <!-- just use a number and class 'column' or 'columns' -->
   <div class="row">
-    <div class="six columns">
+
+    <div class="twelve columns stats">
+      <img src="https://cdn0.iconfinder.com/data/icons/iconsweets2/40/foot_steps_feet.png" width="24px" style="margin: 0px 0px -6px 0px;">
+      Walked <span>{% include '_steps.txt' %}</span> steps today <span class="bar">{% include '_week_steps.txt' %}</span>
+
+      <br/>
+      <img src="https://cdn2.iconfinder.com/data/icons/rental-icon/240/bed-48.png" width="24px" style="float: none; margin: 0px 5px -4px 0;">
+      Slept <span>{% include '_sleep.txt' %}</span> hours last night.
+    </div>
+
+    <div class="twelve columns">
       <ul class="blog_posts">
-        <li><a href="">What I will read in 2016</a></li>
-        <li><a href="">Becoming minimalist</a></li>
-        <li><a href="">Why not use this tech</a></li>
+        {% include '_posts.txt' %}
       </ul>
     </div>
-    <div class="six columns">
-      <img src="https://cdn0.iconfinder.com/data/icons/iconsweets2/40/foot_steps_feet.png" width="24px" style="float: left; margin: -1px 5px 0 0;">
-      Walked <strong>2424</strong> steps today.
-      <br/>
-      <img src="https://cdn2.iconfinder.com/data/icons/rental-icon/240/bed-48.png" width="24px" style="float: left; margin: -3px 5px 0 0;">
-      Slept <strong>6.4</strong> hours last night.
-    </div>
+
 
   </div>
 
 </div>
 
 
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="http://benpickles.github.io/peity/jquery.peity.min.js"></script>
+<script type="text/javascript">
+  $(".bar").peity("bar")
+</script>
+
 </body>
 </html>
