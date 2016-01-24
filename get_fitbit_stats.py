@@ -23,9 +23,17 @@ except:
     steps = 0
 
 try:
-    sleep = authd_client.sleep(date=today)['summary']['totalMinutesAsleep']/60.0
+    sleep = authd_client.sleep(date=today)['summary']['totalMinutesAsleep']
 except:
-    sleep = 0.0
+    sleep = 0
+
+if sleep:
+    print sleep
+    hours = str(sleep / 60) + ' hrs, '
+    minutes = str( int(sleep) % 60 ) + ' mins'
+    sleep = hours + minutes
+else:
+    sleep = "0 hours"
 
 # print 'Steps: ', authd_client.activities(date=datetime.today())['summary']['steps']
 # print 'Slept: ', authd_client.sleep(date=datetime.today())['summary']['totalMinutesAsleep']/60.0
@@ -34,6 +42,6 @@ with open(steps_file_path, 'w') as the_file:
     the_file.write(str(steps))
 
 with open(sleep_file_path, 'w') as the_file:
-    the_file.write( "{0:.2f}".format(sleep) )    
+    the_file.write(sleep)    
 
 authd_client.sleep()
