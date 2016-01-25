@@ -18,8 +18,8 @@ pocket_instance = Pocket(consumer_key, access_token)
 # archived_posts = pocket_instance.get(state='archive')
 # print 'read', len(archived_posts[0]['list'])
 
-
-yesterday = datetime.date.today() - datetime.timedelta(1)
+today = datetime.datetime.now(pytz.timezone('US/Pacific'))
+yesterday = today - datetime.timedelta(hours=24)
 unix_time = yesterday.strftime("%s")
 
 today_read_articles = pocket_instance.get(state='archive', since=unix_time)
