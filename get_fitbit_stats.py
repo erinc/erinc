@@ -29,8 +29,8 @@ except:
 
 if sleep:
     print sleep
-    hours = str(sleep / 60) + ' hrs, '
-    minutes = str( int(sleep) % 60 ) + ' mins'
+    hours = str(sleep / 60) + ' hours, '
+    minutes = str( int(sleep) % 60 ) + ' minutes'
     sleep = hours + minutes
 else:
     sleep = "0 hours"

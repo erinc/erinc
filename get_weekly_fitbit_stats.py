@@ -12,13 +12,14 @@ authd_client = fitbit.Fitbit('6430a603bf3d0cc53629a3ace47037d3', '71eea5d0316ab1
 
 today = datetime.now(pytz.timezone('US/Pacific'))
 
-week_steps = ''
-for i in range(0,10):
+week_steps = 0
+for i in range(1,8):
     d = today - timedelta(days=i)
     s = authd_client.activities(date=d)['summary']['steps']
-    week_steps = str(s) + ',' + week_steps
+    week_steps = week_steps + s
 
+week_avg = week_steps / 7
 with open(week_steps_file_path, 'w') as the_file:
-    the_file.write(week_steps[:-1])
+    the_file.write(str(week_avg))
 
 authd_client.sleep()

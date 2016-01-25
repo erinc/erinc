@@ -4,7 +4,8 @@ import pytz
 import os
 
 script_dir = os.path.dirname(__file__)
-pocket_file_path = os.path.join(script_dir, 'templates/_pocket.txt')
+pocket_read_file_path = os.path.join(script_dir, 'templates/_pocket_read.txt')
+pocket_unread_file_path = os.path.join(script_dir, 'templates/_pocket_unread.txt')
 
 
 consumer_key = "50565-f102f306ba3067de6dc3825b"
@@ -26,5 +27,11 @@ today_read_articles = pocket_instance.get(state='archive', since=unix_time)
 today_read_count = len(today_read_articles[0]['list'])
 print 'read today', today_read_count
 
-with open(pocket_file_path, 'w') as the_file:
+unread_count = len(pocket_instance.get()[0]['list'])
+
+
+with open(pocket_read_file_path, 'w') as the_file:
     the_file.write(str(today_read_count))
+
+with open(pocket_unread_file_path, 'w') as the_file:
+    the_file.write(str(unread_count))

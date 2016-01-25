@@ -22,9 +22,13 @@
       width: 90px;
       height: 90px;
     }
+    .stats {
+      border: 1px solid #eee;
+      padding: 10px;
+    }
     .stats span {
       font-weight: bold;
-      font-size: 20px;
+      font-size: 18px;
     }
     .blog_posts {
       list-style: none;
@@ -51,8 +55,8 @@
       <img class="headshot" src="https://cdn-images-1.medium.com/fit/c/200/200/1*KxxprB-7VQVLAlcbpzTt6A.jpeg">
       <h4>Erinc Mullaoglu</h4></div>
       <p>
-        Product developer based in Vancouver, Canada. <br/>
-        Currently CTO at Wantoo, former engineering lead at Hootsuite.
+        Product developer based in Vancouver, Canada<br/>
+        Currently CTO at <a href="http://wantoo.io">Wantoo</a>, former engineering lead at <a href="http://hootsuite.com">Hootsuite</a>
       </p>
   </div>
 
@@ -60,7 +64,7 @@
 
     <div class="twelve columns stats">
       <img src="https://cdn0.iconfinder.com/data/icons/iconsweets2/40/foot_steps_feet.png" width="24px" style="margin: 0px 0px -6px 0px;">
-      Walked <span>{% include '_steps.txt' %}</span> steps today <span class="bar">{% include '_week_steps.txt' %}</span>
+      Walked <span>{% include '_steps.txt' %}</span> steps today. <span>{% include '_week_steps.txt' %}</span> is my  average for the week.
 
       <br/>
       <img src="https://cdn2.iconfinder.com/data/icons/rental-icon/240/bed-48.png" width="24px" style="float: none; margin: 0px 5px -4px 0;">
@@ -68,7 +72,8 @@
 
       <br/>
       <img src="https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/LIBRARY_2-48.png" width="20px" style="float: none; margin: 0px 2px -4px 0;">
-      Read <span>{% include '_pocket.txt' %}</span> articles in last 24 hours.
+      Read <span>{% include '_pocket_read.txt' %}</span> articles in last 24 hours.
+      <span>{% include '_pocket_unread.txt' %}</span> more in my reading list.
 
     </div>
 
@@ -82,13 +87,6 @@
   </div>
 
 </div>
-
-
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="http://benpickles.github.io/peity/jquery.peity.min.js"></script>
-<script type="text/javascript">
-  $(".bar").peity("bar")
-</script>
 
 </body>
 </html>
