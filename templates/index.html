@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
   <style type="text/css">
     .container {
-      max-width: 500px; 
+      max-width: 600px; 
       margin-top: 100px;
       text-align: center;
     }
@@ -23,23 +23,26 @@
       height: 90px;
     }
     .stats {
-      border: 1px solid #eee;
       padding: 10px;
     }
     .stats span {
       font-weight: bold;
       font-size: 18px;
     }
+    .stats p {
+      margin: 10px 0;
+    }
     .blog_posts {
       list-style: none;
       margin-top: 20px;
     }
-    .blog_posts li a {
+    a {
       color: #000;
       text-decoration: none;
       border-bottom: 1px solid #ddd;
     }
-    .blog_posts li a:hover {
+    a:hover {
+      color: #000;
       border-bottom: 1px solid #000;
     }
   </style>
@@ -63,17 +66,26 @@
   <div class="row">
 
     <div class="twelve columns stats">
-      <img src="https://cdn0.iconfinder.com/data/icons/iconsweets2/40/foot_steps_feet.png" width="24px" style="margin: 0px 0px -6px 0px;">
-      Walked <span>{% include '_steps.txt' %}</span> steps today. <span>{% include '_week_steps.txt' %}</span> is my  average for the week.
+      <p>
+        <img src="https://cdn0.iconfinder.com/data/icons/iconsweets2/40/foot_steps_feet.png" width="24px" style="margin: 0px 0px -6px 0px;">
+        Walked <span>{% include '_steps.txt' %}</span> steps today. <span>{% include '_week_steps.txt' %}</span> is my  average for the week.
+      </p>
 
-      <br/>
-      <img src="https://cdn2.iconfinder.com/data/icons/rental-icon/240/bed-48.png" width="24px" style="float: none; margin: 0px 5px -4px 0;">
-      Slept <span>{% include '_sleep.txt' %}</span> last night.
+      <p>
+        <img src="https://cdn2.iconfinder.com/data/icons/rental-icon/240/bed-48.png" width="24px" style="float: none; margin: 0px 5px -4px 0;">
+        Slept <span>{% include '_sleep.txt' %}</span> last night.
+      </p>
 
-      <br/>
-      <img src="https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/LIBRARY_2-48.png" width="20px" style="float: none; margin: 0px 2px -4px 0;">
-      Read <span>{% include '_pocket_read.txt' %}</span> articles in last 24 hours.
-      <span>{% include '_pocket_unread.txt' %}</span> more in my reading list.
+      <p>
+        <img src="https://cdn1.iconfinder.com/data/icons/freeline/32/document_file_invoice_page_paper_print_read_sheet_text-48.png" width="20px" style="float: none; margin: 0px 2px -4px 0;">
+        Read <span>{% include '_pocket_read.txt' %}</span> articles in last 24 hours.
+        <span>{% include '_pocket_unread.txt' %}</span> more in my reading list.
+      </p>
+
+      <p>
+        <img src="https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/LIBRARY_2-48.png" width="20px" style="float: none; margin: 0px 2px -4px 0;">
+        Currently reading <strong>{% include '_book.txt' %}</strong>.
+      </p>
 
     </div>
 
