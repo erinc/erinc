@@ -13,17 +13,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
   <style type="text/css">
     .container {
-      max-width: 600px; 
+      max-width: 700px; 
       margin-top: 100px;
-      text-align: center;
+      text-align: left;
+    }
+    h4 {
+      margin: 0;
     }
     .headshot {
       border-radius: 50%;
       width: 90px;
       height: 90px;
+      float: left;
+      margin-right: 20px;
     }
     .stats {
-      padding: 10px;
+      padding: 10px 0;
+      text-align: left;
     }
     .stats span {
       font-weight: bold;
@@ -56,7 +62,7 @@
   <div class="row">
     <div class="twelve columns">
       <img class="headshot" src="https://cdn-images-1.medium.com/fit/c/200/200/1*KxxprB-7VQVLAlcbpzTt6A.jpeg">
-      <h4>Erinc Mullaoglu</h4></div>
+      <h4>Erinc Mullaoglu</h4>
       <p>
         Product developer based in Vancouver, Canada<br/>
         Currently CTO at <a href="http://wantoo.io">Wantoo</a>, former engineering lead at <a href="http://hootsuite.com">Hootsuite</a>
@@ -67,7 +73,7 @@
 
     <div class="twelve columns stats">
       <p>
-        <img src="https://cdn0.iconfinder.com/data/icons/iconsweets2/40/foot_steps_feet.png" width="24px" style="margin: 0px 0px -6px 0px;">
+        <img src="https://cdn0.iconfinder.com/data/icons/iconsweets2/40/foot_steps_feet.png" width="26px" style="margin: 0px 0px -6px 0px;">
         Walked <span>{% include '_steps.txt' %}</span> steps today. <span>{% include '_week_steps.txt' %}</span> is my  average for the week.
       </p>
 
@@ -77,14 +83,19 @@
       </p>
 
       <p>
-        <img src="https://cdn1.iconfinder.com/data/icons/freeline/32/document_file_invoice_page_paper_print_read_sheet_text-48.png" width="20px" style="float: none; margin: 0px 2px -4px 0;">
+        <img src="https://cdn0.iconfinder.com/data/icons/very-basic-android-l-lollipop-icon-pack/24/document-48.png" width="24px" style="float: none; margin: 0px 2px -4px 0;">
         Read <span>{% include '_pocket_read.txt' %}</span> articles in last 24 hours.
         <span>{% include '_pocket_unread.txt' %}</span> more in my reading list.
       </p>
 
       <p>
-        <img src="https://cdn3.iconfinder.com/data/icons/solid-locations-icon-set/64/LIBRARY_2-48.png" width="20px" style="float: none; margin: 0px 2px -4px 0;">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/24/editor-books-library-collection-glyph-48.png" width="20px" style="float: none; margin: 0px 4px -4px 0;">
         Currently reading <strong>{% include '_book.txt' %}</strong>.
+      </p>
+
+      <p>
+        <img src="https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519586-083_Music-48.png" width="20px" style="float: none; margin: 0px 4px -4px 0;">
+        Latest song I liked is <strong>{% include '_song.txt' %}</strong>.
       </p>
 
     </div>
