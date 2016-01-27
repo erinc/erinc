@@ -1,21 +1,30 @@
 import sys, os
 import spotipy
 import spotipy.util as util
+from firebase import Firebase
+f = Firebase('https://erinc.firebaseio.com/blog/', auth_token="novxUZ6B97vTwyPrOWtYGxVFKMgUqQ14cIbR3c3H")
 
-script_dir = os.path.dirname(__file__)
-song_file_path = os.path.join(script_dir, 'templates/_song.txt')
+username = "erinc"
+scope = 'user-library-read'
 
-token = "BQDwFWLUgNOwgkesvK_ek3KPHhzaZeFas9HTgrWEr6LmYPzz3hUwXOJ73XNw-MziQoQs6MI2S6qzQxFNN1Mnl00-Y8LsHh9X4Q0tgK1xkVjKGqgc1vz-94y6eKcUm3oibdo_jkKvtq6-sL57qkcMiA"
+SPOTIPY_CLIENT_ID='d121d64f4e5a4f26be72470b6543d732'
+SPOTIPY_CLIENT_SECRET='da9a643ed1c44612ab630f0b41206f5a'
+SPOTIPY_REDIRECT_URI='http://localhotst/callback'
 
-sp = spotipy.Spotify(auth=token)
-results = sp.current_user_saved_tracks(limit=1)
-track = results['items'][0]['track']
-
-song = track['name'] + ' - ' + track['artists'][0]['name']
-song_link = track['external_urls']['spotify']
+token = util.prompt_for_user_token(username, scope, client_id = SPOTIPY_CLIENT_ID, client_secret = SPOTIPY_CLIENT_SECRET, redirect_uri = SPOTIPY_REDIRECT_URI)
 
 
-out = '<a target="_blank" href="'+song_link+'">'+song+'</a>'
+if token:
+    sp = spotipy.Spotify(auth=token)
+    results = sp.current_user_saved_tracks(limit=1)
+    track = results['items'][0]['track']
 
-with open(song_file_path, 'w') as the_file:
-    the_file.write(out)
+    song = track['name'] + ' - ' + track['artists'][0]['name']
+    song_link = track['external_urls']['spotify']
+
+
+    out = '<a target="_blank" href="'+song_link+'">'+song+'</a>'
+
+    f.patch({'song':out})
+else:
+    print "Can't get token for", username

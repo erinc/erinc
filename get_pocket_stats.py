@@ -2,11 +2,8 @@ from pocket import Pocket
 import datetime
 import pytz
 import os
-
-script_dir = os.path.dirname(__file__)
-pocket_read_file_path = os.path.join(script_dir, 'templates/_pocket_read.txt')
-pocket_unread_file_path = os.path.join(script_dir, 'templates/_pocket_unread.txt')
-
+from firebase import Firebase
+f = Firebase('https://erinc.firebaseio.com/blog/', auth_token="novxUZ6B97vTwyPrOWtYGxVFKMgUqQ14cIbR3c3H")
 
 consumer_key = "50565-f102f306ba3067de6dc3825b"
 access_token = '8e80403e-a37d-b45a-ae4e-7b7526'
@@ -29,9 +26,5 @@ print 'read today', today_read_count
 
 unread_count = len(pocket_instance.get()[0]['list'])
 
-
-with open(pocket_read_file_path, 'w') as the_file:
-    the_file.write(str(today_read_count))
-
-with open(pocket_unread_file_path, 'w') as the_file:
-    the_file.write(str(unread_count))
+f.patch({'pocket_read':today_read_count})
+f.patch({'pocket_unread':unread_count})
