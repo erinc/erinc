@@ -43,6 +43,11 @@
     .stats p {
       margin: 10px 0;
     }
+    .stats .loading {
+      width: 22px; 
+      padding-bottom: 1px;
+      margin: 0 5px 0 5px;
+    }
     .blog_posts {
       list-style: none;
       margin-top: 20px;
@@ -83,18 +88,19 @@
     }    
     .product span {    
       font-size: 10px;
-      background-color: #eee;
-      padding: 2px 5px;
-      border-radius: 4px;
+      background-color: #fafafa;
+      padding: 2px 3px;
+      border: 1px solid #eee;
+      border-radius: 2px;
     }    
 
     /* Mobile */
     @media (max-width: 500px) {
       .about {
-        font-size: 13px;
+        font-size: 14px;
       }
       .stats {
-        font-size: 13px;
+        font-size: 14px;
       }
       .stats p{
         border-bottom: 1px solid #fafafa;
@@ -103,9 +109,7 @@
       .stats span {
         font-size: 14px;
       }
-      .stats img {
-        display: none;
-      }
+
     }    
   </style>
   <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
