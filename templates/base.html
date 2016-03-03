@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
   <style type="text/css">
-    .container {
+    .main-container {
       max-width: 700px; 
-      margin-top: 100px;
+      margin-top: 50px;
       text-align: left;
     }
     h4 {
@@ -87,6 +87,26 @@
       padding: 2px 5px;
       border-radius: 4px;
     }    
+
+    /* Mobile */
+    @media (max-width: 400px) {
+      .about {
+        font-size: 13px;
+      }
+      .stats {
+        font-size: 13px;
+      }
+      .stats p{
+        border-bottom: 1px solid #fafafa;
+        padding-bottom: 8px;
+      }      
+      .stats span {
+        font-size: 14px;
+      }
+      .stats img {
+        display: none;
+      }
+    }    
   </style>
   <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
   <script type="text/javascript">
@@ -106,13 +126,13 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container main-container">
 
   <div class="row">
     <div class="twelve columns">
-      <img class="headshot" src="https://cdn-images-1.medium.com/fit/c/200/200/1*KxxprB-7VQVLAlcbpzTt6A.jpeg">
-      <h4>Erinc Mullaoglu</h4>
-      <p>
+      <a href="/"><img class="headshot" src="https://cdn-images-1.medium.com/fit/c/200/200/1*KxxprB-7VQVLAlcbpzTt6A.jpeg"></a>
+      <a href="/"><h4>Erinc Mullaoglu</h4></a>
+      <p class="about">
         I build & lead products. Based in Vancouver. Currently CTO at <a href="http://wantoo.io">Wantoo</a>, former engineering lead at <a href="http://hootsuite.com">Hootsuite</a>.
       </p>
   </div>
