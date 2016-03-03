@@ -1,89 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-  <meta charset="utf-8">
-  <title>Erinc</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
-  <style type="text/css">
-    .container {
-      max-width: 700px; 
-      margin-top: 100px;
-      text-align: left;
-    }
-    h4 {
-      margin: 0;
-    }
-    .headshot {
-      border-radius: 50%;
-      width: 90px;
-      height: 90px;
-      float: left;
-      margin-right: 20px;
-    }
-    .stats {
-      padding: 10px 0;
-      text-align: left;
-    }
-    .stats span {
-      font-weight: bold;
-      font-size: 18px;
-    }
-    .stats p {
-      margin: 10px 0;
-    }
-    .blog_posts {
-      list-style: none;
-      margin-top: 20px;
-    }
-    a {
-      color: #000;
-      text-decoration: none;
-      border-bottom: 1px solid #ddd;
-    }
-    a:hover {
-      color: #000;
-      border-bottom: 1px solid #000;
-    }
-  </style>
-  <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
-  <script type="text/javascript">
-    var myFirebaseRef = new Firebase("https://erinc.firebaseio.com/");
-    myFirebaseRef.child("blog/").on("value", function(snapshot) {
-      document.getElementById('steps').innerHTML = snapshot.val().steps;
-      document.getElementById('steps_avg').innerHTML = snapshot.val().steps_avg;
-      document.getElementById('sleep').innerHTML = snapshot.val().sleep;
-      document.getElementById('pocket_read').innerHTML = snapshot.val().pocket_read;
-      document.getElementById('pocket_unread').innerHTML = snapshot.val().pocket_unread;
-      document.getElementById('book').innerHTML = snapshot.val().book;
-      document.getElementById('song').innerHTML = snapshot.val().song;
-
-    });    
-  </script>
-  <link rel="icon" type="image/png" href="https://cdn-images-1.medium.com/fit/c/200/200/1*KxxprB-7VQVLAlcbpzTt6A.jpeg">
-</head>
-<body>
-
-<div class="container">
-
-  <div class="row">
-    <div class="twelve columns">
-      <img class="headshot" src="https://cdn-images-1.medium.com/fit/c/200/200/1*KxxprB-7VQVLAlcbpzTt6A.jpeg">
-      <h4>Erinc Mullaoglu</h4>
-      <p>
-        Product developer based in Vancouver, Canada<br/>
-        Currently CTO at <a href="http://wantoo.io">Wantoo</a>, former engineering lead at <a href="http://hootsuite.com">Hootsuite</a>
-      </p>
-  </div>
-
-  <div class="row">
-
+{% extends "base.html" %}
+{% block content %}
     <div class="twelve columns stats">
       <p>
         <img src="https://cdn0.iconfinder.com/data/icons/iconsweets2/40/foot_steps_feet.png" width="26px" style="margin: 0px 0px -6px 0px;">
@@ -118,10 +34,4 @@
         {% include '_posts.txt' %}
       </ul>
     </div>
-
-
-  </div>
-
-</div>
-</body>
-</html>
+{% endblock content %}
