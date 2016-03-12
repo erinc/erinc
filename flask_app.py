@@ -1,7 +1,12 @@
 import os
+import requests
+import json
+
 from flask import Flask
 from flask import render_template
 from flask import redirect
+from flask import request
+
 
 app = Flask(__name__)
 
@@ -20,6 +25,17 @@ def hello():
 @app.route('/about/')
 def about():
     return render_template('about.html')
+
+@app.route('/zapier/')
+def zapier():
+    headers = {'content-type': 'application/json'}
+    zapier_hook_url = 'https://zapier.com/hooks/catch/2ga883/'
+    referer = request.referrer
+    ip = request.remote_addr
+    data = {'referer':referer, 'ip':ip, 'page':'zapier'}
+    requests.post(zapier_hook_url, data=json.dumps(data), headers=headers)
+
+    return render_template('zapier.html')
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
