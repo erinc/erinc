@@ -31,7 +31,10 @@ def zapier():
     headers = {'content-type': 'application/json'}
     zapier_hook_url = 'https://zapier.com/hooks/catch/2ga883/'
     referer = request.referrer
-    ip = request.remote_addr
+    try:
+        ip = request.access_route[0]
+    except:
+        ip = request.remote_addr
     data = {'referer':referer, 'ip':ip, 'page':'zapier'}
     requests.post(zapier_hook_url, data=json.dumps(data), headers=headers)
 
