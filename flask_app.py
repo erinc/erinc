@@ -36,7 +36,10 @@ def zapier():
     except:
         ip = request.remote_addr
     data = {'referer':referer, 'ip':ip, 'page':'zapier'}
-    requests.post(zapier_hook_url, data=json.dumps(data), headers=headers)
+    try:
+        requests.post(zapier_hook_url, data=json.dumps(data), headers=headers)
+    except:
+        pass
 
     return render_template('zapier.html')
 
