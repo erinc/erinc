@@ -16,6 +16,19 @@ def index():
 
 @app.route('/products/')
 def products():
+    headers = {'content-type': 'application/json'}
+    zapier_hook_url = 'https://zapier.com/hooks/catch/2q9we8/'
+    referer = request.referrer
+    try:
+        ip = request.access_route[0]
+    except:
+        ip = request.remote_addr
+    data = {'referer':referer, 'ip':ip, 'page':'products'}
+    try:
+        requests.post(zapier_hook_url, data=json.dumps(data), headers=headers)
+    except:
+        pass    
+
     return render_template('products.html')
 
 @app.route('/resume/')
