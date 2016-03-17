@@ -32,8 +32,20 @@ def products():
     return render_template('products.html')
 
 @app.route('/resume/')
-def hello():
-    return redirect("https://dl.dropboxusercontent.com/u/169206/Erinc-Resume.pdf", code=302)
+def resume():
+    headers = {'content-type': 'application/json'}
+    zapier_hook_url = 'https://zapier.com/hooks/catch/2q9we8/'
+    referer = request.referrer
+    try:
+        ip = request.access_route[0]
+    except:
+        ip = request.remote_addr
+    data = {'referer':referer, 'ip':ip, 'page':'resume'}
+    try:
+        requests.post(zapier_hook_url, data=json.dumps(data), headers=headers)
+    except:
+        pass         
+    return redirect("https://dl.dropboxusercontent.com/u/169206/Erinc_resume.pdf", code=302)
 
 @app.route('/about/')
 def about():
