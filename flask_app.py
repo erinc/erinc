@@ -68,6 +68,24 @@ def zapier():
 
     return render_template('zapier.html')
 
+
+@app.route('/2025/')
+def wealthfront():
+    headers = {'content-type': 'application/json'}
+    zapier_hook_url = 'https://zapier.com/hooks/catch/2q9we8/'
+    referer = request.referrer
+    try:
+        ip = request.access_route[0]
+    except:
+        ip = request.remote_addr
+    data = {'referer':referer, 'ip':ip, 'page':'wealthfront'}
+    try:
+        requests.post(zapier_hook_url, data=json.dumps(data), headers=headers)
+    except:
+        pass       
+    return render_template('wealthfront.html')    
+
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)    
