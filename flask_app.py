@@ -47,9 +47,11 @@ def resume():
         pass         
     return redirect("https://dl.dropboxusercontent.com/u/169206/Erinc_resume.pdf", code=302)
 
+
 @app.route('/about/')
 def about():
     return render_template('about.html')
+
 
 @app.route('/zapier/')
 def zapier():
@@ -67,6 +69,11 @@ def zapier():
         pass
 
     return render_template('zapier.html')
+
+
+@app.route('/magpie/')
+def magpie():
+    return render_template('magpie.html')
 
 
 @app.route('/2025/')
