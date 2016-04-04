@@ -71,8 +71,8 @@ def zapier():
     return render_template('zapier.html')
 
 
-@app.route('/magpie/')
-def magpie():
+@app.route('/magpie/onboarding/')
+def magpie_onboarding():
     return render_template('magpie.html')
 
 
