@@ -178,7 +178,8 @@
 </head>
 <body>
 
-<div class="container main-container">
+{% block main_container %}
+  <div class="container main-container">
 
   {% block header %}
   <div class="row">
@@ -196,6 +197,9 @@
   {% block content %}
   {% endblock content %}
   </div>
+
+{% endblock main_container %}
+  
 
 </body>
 </html>

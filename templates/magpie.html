@@ -7,11 +7,23 @@
 {% block firebase %}{% endblock firebase %}
 
 
-{% block content %}
+{% block add_css %}
+    body { 
+        background: #000;
+    }
 
-<script src="https://magpie.io/static/js/widget.js" async="async"></script>
-<div id="cd_widget" data-companykey="lb0kdgrqce" async="async"></div>
-<div class="twelve columns">
-   Hey
-</div>
+    iframe {
+    display: block;       /* iframes are inline by default */
+    background: #000;
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
+    width: 100vw;
+}
+{% endblock %}
+
+
+{% block main_container %}
+
+  
+<iframe src="https://docs.google.com/presentation/d/1o-D1FW0THNpaj7ooUqR7CGf6gamk-FV4cXWRLVanp5Q/embed?start=false&loop=false&delayms=60000" frameborder="0" width="100%" height="700px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 {% endblock %}
