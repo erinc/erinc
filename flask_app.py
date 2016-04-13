@@ -76,6 +76,11 @@ def magpie():
     return render_template('magpie.html')
 
 
+@app.route('/magpie/widget/')
+def magpie_widget():
+    return render_template('magpie_widget.html')
+
+
 @app.route('/2025/')
 def wealthfront():
     headers = {'content-type': 'application/json'}
